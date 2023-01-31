@@ -42,7 +42,7 @@ SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'TeamEvamaria')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "True")), True)
 IMDB = is_enabled((environ.get('IMDB', "True")), True)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), True)
-CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", "<code>{file_name}</code>\n\n┏━━━━•❅•°•❈•°•❅••━━━━┓\n✰👑 <b>𝐉𝐨𝐢𝐧  [Update Channel](https://t.me/backupchannaljoin)</b>  👑✰\n┗━━━━•❅•°•❈•°•❅•━━━━┛")
+CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", "<code>{file_name}</code>\n\n┏━━━━•❅•°•❈•°•❅••━━━━┓\n✰👑 <b>𝐉𝐨𝐢𝐧  [ 𝙈𝙖𝙞𝙣 𝘾𝙝𝙖𝙣𝙣𝙚𝙡 ](https://t.me/pthan_Moviess)</b>  👑✰\n┗━━━━•❅•°•❈•°•❅•━━━━┛")
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
 IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "<b>Query: {query}</b> \n‌‌‌‌IMDb Data:\n\n🏷 Title: <a href={url}>{title}</a>\n🎭 Genres: {genres}\n📆 Year: <a href={url}/releaseinfo>{year}</a>\n🌟 Rating: <a href={url}/ratings>{rating}</a> / 10")
 LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False"), False)
@@ -65,7 +65,7 @@ LOG_STR += (f"MAX_LIST_ELM Found, long list will be shortened to first {MAX_LIST
 LOG_STR += f"Your current IMDB template is {IMDB_TEMPLATE}"
 
 
-SHORTENER_API = environ.get("SHORTENER_API", "40685a67cd3fe2266c5ecb6cd61b955d577df146")
+SHORTENER_API = environ.get("SHORTENER_API", "5a79fbe3e45610703b48a49a41d12991e995cb46")
 LONG_DROPLINK_URL = environ.get("LONG_DROPLINK_URL", False)
 
 
