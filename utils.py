@@ -1,8 +1,10 @@
 import logging
 import shortzy 
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import LONG_DROPLINK_URL, SHORTENER_API, AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, STREAM_API, STREAM_SITE, STREAM_URL, STREAM_LONGfrom imdb import Cinemagoer
+from info import LONG_DROPLINK_URL, SHORTENER_API, AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, STREAM_API, STREAM_SITE, STREAM_URL, STREAM_LONG
+from imdb import Cinemagoer
 import asyncio
+from shortzy import Shortzy 
 from pyrogram.types import Message, InlineKeyboardButton
 from pyrogram import enums
 from typing import Union
@@ -469,9 +471,7 @@ async def gen_link(log_msg: Message):
 #stream link shortner
 
 shortz = shortzy.Shortzy(#stream link shortner
-
 shortz = shortzy.Shortzy(STREAM_API, STREAM_SITE)
-#user_id = message.user.id
 async def short_link(link):
     if STREAM_URL:
         if  STREAM_LONG =="True" or STREAM_LONG is True:
@@ -479,11 +479,4 @@ async def short_link(link):
         else:
             return await shortz.convert(link, silently_fail=False)
     return link)
-#user_id = message.user.id
-async def short_link(link):
-    if STREAM_URL:
-        if  STREAM_LONG =="True" or STREAM_LONG is True:
-            return await shortz.get_quick_link(link)
-        else:
-            return await shortz.convert(link, silently_fail=False)
-    return link
+
