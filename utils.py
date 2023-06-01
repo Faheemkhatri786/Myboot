@@ -1,8 +1,7 @@
 import logging
 import shortzy 
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import LONG_DROPLINK_URL, SHORTENER_API, AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM
-from imdb import Cinemagoer
+from info import LONG_DROPLINK_URL, SHORTENER_API, AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, STREAM_API, STREAM_SITE, STREAM_URL, STREAM_LONGfrom imdb import Cinemagoer
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton
 from pyrogram import enums
@@ -14,7 +13,7 @@ from typing import List
 from database.users_chats_db import db
 from bs4 import BeautifulSoup
 import requests
-
+import
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
@@ -389,5 +388,102 @@ async def get_shortlink(link):
     return link
 
 
+#  Tg DIRECT Link Generator
+async def direct_gen_handler(m: Message):
+    if not DIRECT_GEN:
+        return None, None
+    # FIle store Bot 
+    try:
+        log_msg = await m.copy(chat_id=DIRECT_GEN_DB)
+        stream_link, download_link = await gen_link(log_msg)
+        return stream_link, download_link
+    except FloodWait as e:
+        await asyncio.sleep(e.value)
+        await direct_gen_handler(m)
 
 
+def get_media_from_message(message: "Message") :
+    media_types = (
+        "audio",
+        "document",
+        "photo",
+        "sticker",
+        "animation",
+        "video",
+        "voice",
+        "video_note",
+    )
+    for attr in media_types:
+        media = getattr(message, attr, None)
+        if media:
+            return media
+
+def get_hash(media_msg: Message) -> str:
+    media = get_media_from_message(media_msg)
+    return getattr(media, "file_unique_id", "")[:6]
+
+def get_media_file_size(m):
+    media = get_media_from_message(m)
+    return getattr(media, "file_size", "None")
+
+def get_name(media_msg: Message) -> str:
+    media = get_media_from_message(media_msg)
+    return str(getattr(media, "file_name", "None"))
+
+def get_media_mime_type(m):
+    media = get_media_from_message(m)
+    return getattr(media, "mime_type", "None/unknown")
+
+def get_media_file_unique_id(m):
+    media = get_media_from_message(m)
+    return getattr(media, "file_unique_id", "")
+
+def humanbytes(size):
+    # https://stackoverflow.com/a/49361727/4723940
+    # 2**10 = 1024
+    if not size:
+        return ""
+    power = 2**10
+    n = 0
+    Dic_powerN = {0: ' ', 1: 'Ki', 2: 'Mi', 3: 'Gi', 4: 'Ti'}
+    while size > power:
+        size /= power
+        n += 1
+    return f"{str(round(size, 2))} {Dic_powerN[n]}B"
+
+
+# Tg DIRECT Link Generator
+async def gen_link(log_msg: Message):
+    """Generate Text for Stream Link, Reply Text and reply_markup
+    r : return page_link, stream_link
+    page_link : stream page link
+    stream_link : download link
+    """
+    page_link = f"{DIRECT_GEN_URL}watch/{get_hash(log_msg)}{log_msg.id}"
+    stream_link = f"{DIRECT_GEN_URL}{log_msg.id}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+    # short
+    page_link = await short_link( page_link)
+    stream_link = await short_link(stream_link)
+    return page_link, stream_link
+
+#stream link shortner
+
+shortz = shortzy.Shortzy(#stream link shortner
+
+shortz = shortzy.Shortzy(STREAM_API, STREAM_SITE)
+#user_id = message.user.id
+async def short_link(link):
+    if STREAM_URL:
+        if  STREAM_LONG =="True" or STREAM_LONG is True:
+            return await shortz.get_quick_link(link)
+        else:
+            return await shortz.convert(link, silently_fail=False)
+    return link)
+#user_id = message.user.id
+async def short_link(link):
+    if STREAM_URL:
+        if  STREAM_LONG =="True" or STREAM_LONG is True:
+            return await shortz.get_quick_link(link)
+        else:
+            return await shortz.convert(link, silently_fail=False)
+    return link
