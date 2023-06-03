@@ -361,12 +361,27 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
-                await client.send_cached_media(
+                dm = await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
                     protect_content=True if ident == "filep" else False 
                 )
+                buttons =  InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                "⚡️ 𝙁𝙖𝙨𝙩 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙 / 𝙒𝙖𝙩𝙘𝙝 𝙊𝙣𝙡𝙞𝙣𝙚 ⚡️", callback_data="direct_gen"
+                            )
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                "🔸 𝙅𝙤𝙞𝙣 𝙂𝙧𝙤𝙪𝙥 🔸", url="https://t.me/+FAgX05kGByNkZjJl"
+                            )
+                        ]] 
+                )
+                await dm.edit_reply_markup(buttons)
+                            
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
@@ -397,12 +412,24 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{title}"
         await query.answer()
-        await client.send_cached_media(
+        dm = await client.send_cached_media(
             chat_id=query.from_user.id,
             file_id=file_id,
             caption=f_caption,
             protect_content=True if ident == 'checksubp' else False
         )
+        buttons =  InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "⚡️ 𝙁𝙖𝙨𝙩 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙 / 𝙒𝙖𝙩𝙘𝙝 𝙊𝙣𝙡𝙞𝙣𝙚 ⚡️", callback_data="direct_gen"
+                    )
+                ]] 
+        )
+        await dm.edit_reply_markup(buttons)
+
+            
+		
     elif query.data == "pages":
         await query.answer()
     elif query.data == "start":
