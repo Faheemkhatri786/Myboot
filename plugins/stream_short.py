@@ -11,4 +11,4 @@ async def short_link(link):
             return await shortz.get_quick_link(link)
         else:
             return await shortz.convert(link, silently_fail=False)
-    return link)
+    return link
