@@ -1,4 +1,5 @@
 import logging
+from urllib.parse import quote_plus
 import shortzy 
 from plugins.stream_short import short_link
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
