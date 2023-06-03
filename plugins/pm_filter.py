@@ -13,7 +13,7 @@ from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GRO
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
-from utils import get_shortlink, get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings
+from utils import direct_gen_handler, get_shortlink, get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings
 from database.users_chats_db import db
 from database.ia_filterdb import Media, get_file_details, get_search_results
 from database.filters_mdb import (
@@ -642,7 +642,28 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
-    await query.answer('Piracy Is Crime')
+    elif query.data.startswith("direct_gen"):
+        stream, download = await direct_gen_handler(query.message)
+        if download and stream:
+            buttons = [
+                    InlineKeyboardButton(
+                        "⚡️ 𝙁𝙖𝙨𝙩 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙 ⚡️",
+                        url=stream,
+                    ),
+                    InlineKeyboardButton(
+                        "🖥 𝙒𝙖𝙩𝙘𝙝 𝙊𝙣𝙡𝙞𝙣𝙚",
+                        url=stream,
+                    ),
+                ]
+            
+            
+            query.message.reply_markup = query.message.reply_markup or []
+            # remove the first row
+            query.message.reply_markup.inline_keyboard.pop(0)
+            query.message.reply_markup.inline_keyboard.insert(0, buttons)
+            await query.message.edit_reply_markup(InlineKeyboardMarkup(query.message.reply_markup.inline_keyboard))
+                    
+    await query.answer("Piracy Is Crime")
 
 
 async def auto_filter(client, msg, spoll=False):
