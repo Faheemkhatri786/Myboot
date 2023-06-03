@@ -240,7 +240,7 @@ async def start(client, message):
             f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
-    await client.send_cached_media(
+    dm = await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
@@ -248,10 +248,18 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('♻️ 𝐉𝐨𝐢𝐧 𝙂𝙧𝙤𝙪𝙥 ', url="https://t.me/MovieRiqust")
-                ]
+                    InlineKeyboardButton(
+                        "⚡️ 𝙁𝙖𝙨𝙩 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙 / 𝙒𝙖𝙩𝙘𝙝 𝙊𝙣𝙡𝙞𝙣𝙚 ⚡️", callback_data="direct_gen"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "🔸 𝙅𝙤𝙞𝙣 𝙂𝙧𝙤𝙪𝙥 🔸 ", url="https://t.me/+FAgX05kGByNkZjJl"
+
+                    )
+                ],
             ]
-        )
+        ),		
     )
                     
 
