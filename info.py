@@ -65,21 +65,17 @@ LOG_STR += (f"MAX_LIST_ELM Found, long list will be shortened to first {MAX_LIST
 LOG_STR += f"Your current IMDB template is {IMDB_TEMPLATE}"
 
 DIRECT_GEN_DB = int(os.environ.get("DIRECT_GEN_DB", "-1001620024364"))
-
 DIRECT_GEN_URL = os.environ.get("DIRECT_GEN_URL", "https://streambot-sz4k.onrender.com/") # https://example.com/
 
 DIRECT_GEN = bool(DIRECT_GEN_DB and DIRECT_GEN_URL)
-
 STREAM_URL = is_enabled((environ.get('STREAM_URL', "True")), True)
-
 STREAM_API = environ.get("STREAM_API", "8e0961cf2c4a8f61f4d7f2b8fa806816b1fa8dc6")
-
 STREAM_SITE = environ.get("STREAM_SITE", "omegalinks.in")
-
 STREAM_LONG = environ.get("STREAM_LONG", False)
 
 
-SHORTENER_API = environ.get("SHORTENER_API", "23dba83e36939b0508ec55978597295baf3ce09a")
+SHORTNER_URL = environ.get("SHORTNER_URL", "mplaylink.com")
+SHORTENER_API = environ.get("SHORTENER_API", "8db0558aab2db9d65814d86571a89d6cc8991101")
 LONG_DROPLINK_URL = environ.get("LONG_DROPLINK_URL", False)
 
 
