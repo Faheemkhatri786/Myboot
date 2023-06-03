@@ -1,7 +1,7 @@
 import shortzy 
 from info import STREAM_API, STREAM_SITE, STREAM_URL, STREAM_LONG
 
-shortz = shortzy.Shortzy(#stream link shortner
+
 shortz = shortzy.Shortzy(STREAM_API, STREAM_SITE)
 async def short_link(link):
     if STREAM_URL:
