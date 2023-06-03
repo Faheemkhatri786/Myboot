@@ -2,7 +2,7 @@ import logging
 import shortzy 
 from plugins.stream_short import short_link
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import SHORTNER_URL, LONG_DROPLINK_URL, SHORTENER_API, AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, STREAM_API, STREAM_SITE, STREAM_URL, STREAM_LONG
+from info import DIRECT_GEN_URL, DIRECT_GEN_DB, SHORTNER_URL, LONG_DROPLINK_URL, SHORTENER_API, AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, STREAM_API, STREAM_SITE, STREAM_URL, STREAM_LONG
 from imdb import Cinemagoer
 import asyncio
 from shortzy import Shortzy 
