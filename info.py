@@ -70,13 +70,13 @@ DIRECT_GEN_URL = os.environ.get("DIRECT_GEN_URL", "https://filetolinkbot2.heroku
 
 DIRECT_GEN = bool(DIRECT_GEN_DB and DIRECT_GEN_URL)
 STREAM_URL = is_enabled((environ.get('STREAM_URL', "True")), True)
-STREAM_API = environ.get("STREAM_API", "8db0558aab2db9d65814d86571a89d6cc8991101")
-STREAM_SITE = environ.get("STREAM_SITE", "mplaylink.com")
+STREAM_API = environ.get("STREAM_API", "61ff95fd42293af83962618f16bd1a6803649a7e")
+STREAM_SITE = environ.get("STREAM_SITE", "indianshortner.com")
 STREAM_LONG = environ.get("STREAM_LONG", False)
 
 
-SHORTNER_URL = environ.get("SHORTNER_URL", "ziplinker.net")
-SHORTENER_API = environ.get("SHORTENER_API", "23dba83e36939b0508ec55978597295baf3ce09a")
+SHORTNER_URL = environ.get("SHORTNER_URL", "vipurl.in")
+SHORTENER_API = environ.get("SHORTENER_API", "90d7007017aebaef26d174fdecb841c2694d203e")
 LONG_DROPLINK_URL = environ.get("LONG_DROPLINK_URL", False)
 
 
