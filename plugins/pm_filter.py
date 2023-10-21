@@ -108,7 +108,7 @@ async def next_page(bot, query):
             ],
         )
     btn.insert(0, [
-        InlineKeyboardButton("🔹 How to download 🔹", url='https://t.me/backupchannaljoin/12')
+        InlineKeyboardButton("🔹 How to download 🔹", url='https://t.me/HowToDownload786')
     ])
     try:
         await query.edit_message_reply_markup(
@@ -376,7 +376,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         ],
                         [
                             InlineKeyboardButton(
-                                "🔸 𝙅𝙤𝙞𝙣 𝙂𝙧𝙤𝙪𝙥 🔸", url="https://t.me/+FAgX05kGByNkZjJl"
+                                "🔸 𝙅𝙤𝙞𝙣 𝙂𝙧𝙤𝙪𝙥 🔸", url="https://t.me/movieriqvestatoz"
                             )
                         ]] 
                 )
@@ -437,7 +437,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ], [
             InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/backupchannaljoin')
+            InlineKeyboardButton('🤖 Updates', url='https://t.me/faheemkhatri7861')
         ], [
             InlineKeyboardButton('ℹ️ Help', callback_data='help'),
             InlineKeyboardButton('😊 About', callback_data='about')
@@ -468,7 +468,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         buttons = [[
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/backupchannaljoin'),
+            InlineKeyboardButton('🤖 Updates', url='https://t.me/faheemkhatri7861'),
             InlineKeyboardButton('♥️ Source', callback_data='source')
         ], [
             InlineKeyboardButton('🏠 Home', callback_data='start'),
@@ -725,7 +725,7 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
         )
     btn.insert(0, [
-        InlineKeyboardButton("🔹 How to download 🔹", url='https://t.me/backupchannaljoin/12')
+        InlineKeyboardButton("🔹 How to download 🔹", url='https://t.me/HowToDownload786')
     ])
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
