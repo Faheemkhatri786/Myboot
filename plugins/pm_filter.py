@@ -108,7 +108,7 @@ async def next_page(bot, query):
             ],
         )
     btn.insert(0, [
-        InlineKeyboardButton("🔹 How to download 🔹", url='https://t.me/HowToDownload786')
+        InlineKeyboardButton("🔹 How to download 🔹", url='https://t.me/HowToDownload786/13')
     ])
     try:
         await query.edit_message_reply_markup(
@@ -725,7 +725,7 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
         )
     btn.insert(0, [
-        InlineKeyboardButton("🔹 How to download 🔹", url='https://t.me/HowToDownload786')
+        InlineKeyboardButton("🔹 How to download 🔹", url='https://t.me/HowToDownload786/13')
     ])
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
