@@ -75,8 +75,8 @@ STREAM_SITE = environ.get("STREAM_SITE", "Vipurl.in")
 STREAM_LONG = environ.get("STREAM_LONG", False)
 
 
-SHORTNER_URL = environ.get("SHORTNER_URL", "Vipurl.in")
-SHORTENER_API = environ.get("SHORTENER_API", "45bfb7d57a0a28b42af639ceff52225fffd11fe8")
+SHORTNER_URL = environ.get("SHORTNER_URL", "")
+SHORTENER_API = environ.get("SHORTENER_API", "")
 LONG_DROPLINK_URL = environ.get("LONG_DROPLINK_URL", False)
 
 
